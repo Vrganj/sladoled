@@ -59,6 +59,7 @@
 
             audio.onloadedmetadata = () => {
                 audio.currentTime = audio.duration * Math.random() * 3/5;
+                audio.play();
             }
 
             audio.ontimeupdate = () => {
@@ -68,10 +69,6 @@
                 const total = audio.duration - audio.currentTime;
 
                 songDownload = `${(loaded / total * 100).toFixed(2)}% ${loaded.toFixed(2)}/${total.toFixed(2)}`;
-            };
-
-            audio.oncanplay = () => {
-                audio.play();
             };
         };
     });
