@@ -4,7 +4,7 @@
     export let name;
 
     function select() {
-        // if ($selectedSong) return;
+        if ($selectedSong) return;
         $selectedSong = name;
     }
 </script>
