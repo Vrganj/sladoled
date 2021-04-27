@@ -9,6 +9,7 @@
     let audio;
     let choices;
     let songQueue;
+    let songDownload = '';
 
     let audioProgress = 0;
 
@@ -64,6 +65,10 @@
             audio.ontimeupdate = () => {
                 audioProgress = audio.currentTime / audio.duration * 100;
             };
+
+            audio.onprogress = ({ loaded, total }) => {
+                songDownload = `${loaded / total * 100}% ${loaded}/${total}`;
+            };
         };
     });
 </script>
@@ -80,6 +85,7 @@
             <div class="progress" style="height: 3px">
                 <div class="progress-bar" role="progressbar" style="width: {audioProgress}%;"></div>
             </div>
+            <p class="text-muted mt-3 mb-0">{songDownload}</p>
         </div>
 
         {#each choices as song}
