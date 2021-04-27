@@ -28,12 +28,12 @@
             songQueue = [...songs];
             shuffleArray(songQueue);
 
-            nextSong();
-
-            stage = 'playing';
+            stage = 'ready';
         })();
 
         nextSong = () => {
+            stage = 'playing';
+
             if (songQueue.length === 0) {
                 stage = 'finished';
                 return;
@@ -70,6 +70,10 @@
 
 {#if stage === 'loading'}
     ...
+{:else if stage === 'ready'}
+    <div class="d-flex justify-content-center mt-3">
+        <button type="button" class="btn btn-primary col-8 col-md-6 col-lg-4" on:click={nextSong}>Kreni</button>
+    </div>
 {:else if stage === 'playing'}
     <div class="container my-2">
         <div class="rounded my-2 p-3" style="background: #f4f4f4">
