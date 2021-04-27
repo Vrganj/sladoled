@@ -66,7 +66,10 @@
                 audioProgress = audio.currentTime / audio.duration * 100;
             };
 
-            audio.onprogress = ({ loaded, total }) => {
+            audio.onprogress = () => {
+                const loaded = audio.buffered.end(0);
+                const total = audio.duration;
+
                 songDownload = `${loaded / total * 100}% ${loaded}/${total}`;
             };
         };
