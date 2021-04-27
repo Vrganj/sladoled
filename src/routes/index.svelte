@@ -23,7 +23,7 @@
         }
 
         (async () => {
-            songs = (await fetch('http://192.168.1.40/songs/').then(res => res.json())).map(song => song.name);
+            songs = (await fetch('/songs/').then(res => res.json())).map(song => song.name);
 
             songQueue = [...songs];
             shuffleArray(songQueue);
@@ -54,7 +54,7 @@
             shuffleArray(tmp);
             choices = tmp;
 
-            audio = new Audio(`http://192.168.1.40/songs/${$correctSong}`);
+            audio = new Audio(`/songs/${$correctSong}`);
 
             audio.onloadedmetadata = () => {
                 audio.currentTime = audio.duration * Math.random() * 3/5;
