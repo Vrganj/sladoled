@@ -70,7 +70,7 @@
                 const loaded = audio.buffered.end(0);
                 const total = audio.duration;
 
-                songDownload = `${loaded / total * 100}% ${loaded}/${total}`;
+                songDownload = `${(loaded / total * 100).toFixed(2)}% ${loaded}/${total}`;
             };
         };
     });
