@@ -64,7 +64,7 @@
             audio.ontimeupdate = () => {
                 audioProgress = audio.currentTime / audio.duration * 100;
 
-                const loaded = audio.buffered.end(0) - audio.currentTime;
+                const loaded = audio.buffered.end(Infinity) - audio.currentTime;
                 const total = audio.duration - audio.currentTime;
 
                 songDownload = `${(loaded / total * 100).toFixed(2)}% ${loaded.toFixed(2)}/${total.toFixed(2)}`;
