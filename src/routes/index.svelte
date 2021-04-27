@@ -72,7 +72,7 @@
                 songDownload = `${(loaded / total * 100).toFixed(2)}% ${loaded.toFixed(2)}/${total.toFixed(2)}`;
             };
 
-            audio.onplayable = () => {
+            audio.oncanplay = () => {
                 audio.play();
             };
         };
